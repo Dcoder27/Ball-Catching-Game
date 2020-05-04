@@ -1,0 +1,104 @@
+<html lang="en">
+    <head>
+        <style>
+            div{
+               align-self: center;
+                width: 100%;
+            }
+            
+            table{
+                width: 500px;
+                height: 425px;
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+            }
+            th{
+                font-size: 35px;
+                text-align: right;
+                font-family:monospace;
+                height: 55px;
+                
+            }
+            td{
+                text-align: center;
+            }
+            button{
+              background-color: white; 
+              padding: 16px 32px;
+              border: none;
+              color: darkcyan;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 25px;
+              font-family:monospace;
+              transition-duration: 0.4s;
+              cursor: pointer;
+              border-radius: 20px;
+              box-shadow: 0 9px #999;    
+           
+            } 
+ 
+            button:hover{
+                background-color: black;
+            }
+            button:active{
+                  background-color: black;
+                  box-shadow: 0 5px #666;
+                  transform: translateY(4px);
+            }
+            button:focus{
+                outline: 0;
+            }
+            .0_button{
+                width: 100%;
+            }
+          
+
+        </style>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+    </head>
+    <body style = "background-color: darksalmon">
+        <div id = "table">
+        <table>
+          <th id = "result"; colspan="4"></th>
+            <tr>
+                <td><button id = "AC_button">AC</button></td>
+                <td><button id = "plus-minus_button">+/-</button></td>
+                <td><button id = "percentage_button">%</button></td>
+                <td><button id = "divide_button">÷</button></td>
+            </tr>
+            <tr>
+                <td><button id = "7_button">7</button></td>
+                <td><button id = "8_button">8</button></td>
+                <td><button id = "9_button">9</button></td>
+                <td><button id = "multiply_button">x</button></td>
+            </tr>
+             <tr>
+                <td><button id = "4_button">4</button></td>
+                <td><button id = "5_button">5</button></td>
+                <td><button id = "6_button">6</button></td>
+                <td><button id = "subtract_button">-</button></td>
+            </tr>
+             <tr>
+                <td><button id = "3_button">3</button></td>
+                <td><button id = "2_button">2</button></td>
+                <td><button id = "1_button">1</button></td>
+                <td><button id = "plus_button">+</button></td>
+            </tr>
+             <tr>
+                <td colspan="2"><button id = "0_button">0</button></td>  
+                <td><button id = "decimal_button">.</button></td>
+                <td><button id = "equal_button">=</button></td>
+            </tr>
+        </table>
+        </div>    
+                        
+    <!-- ---------------------------------JAVASCRIPT--------------------------------->
+        
+        <script src = "calc.js">
+        </script>
+    </body>
+</html>
