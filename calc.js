@@ -1,11 +1,3 @@
-var addition = false;
-
-var subtraction = false;
-
-var multiplication = false;
-
-var division = false;
-
 
 var DOMstrings = {
         number1: document.getElementById("1_button"),
@@ -20,17 +12,15 @@ var DOMstrings = {
         number0: document.getElementById("0_button"),
         ACbutton: document.getElementById("AC_button"),
         resultDisplay: document.getElementById("result"),
-        equalButton: document.getElementById("equal_button")
+        equalButton: document.getElementById("equal_button"),
 };     
     var resultContent = [];
-    parseInt(resultContent);
-    var i, counter;
 
-for(i = 0; i <= resultContent; i++)
-{
+        
          DOMstrings.number1.onclick = function() {
                 type1();
-                resultContent.push(1);
+                toString(DOMstrings.number1.textContent)
+             resultContent.push(DOMstrings.number1.textContent);
             };
             function type1() {
                if (document.getElementById("result").textContent === '')
@@ -45,10 +35,11 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number2.onclick = function() {
                 type2();
-         resultContent.push(2);
+            toString(DOMstrings.number2.textContent)
+             resultContent.push(DOMstrings.number2.textContent);
             };
             function type2() {
-                if (document.getElementById("result").textContent === '0')
+                if (document.getElementById("result").textContent === '0' || DOMstrings.resultDisplay.textContent === '')
                 {
                     document.getElementById("result").textContent = 2;
                 } else 
@@ -59,7 +50,8 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number3.onclick = function() {
                 type3();
-         resultContent.push(3);
+             toString(DOMstrings.number3.textContent)
+             resultContent.push(DOMstrings.number3.textContent);
             };
             function type3() {
                 if (document.getElementById("result").textContent === '')
@@ -73,7 +65,8 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number4.onclick = function() {
                 type4();
-         resultContent.push(4);
+             toString(DOMstrings.number4.textContent)
+             resultContent.push(DOMstrings.number4.textContent);
             };
             function type4() {
                 if (document.getElementById("result").textContent === '')
@@ -87,7 +80,8 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number5.onclick = function() {
                 type5();
-         resultContent.push(5);
+             toString(DOMstrings.number5.textContent)
+             resultContent.push(DOMstrings.number5.textContent);
             };
             function type5() {
                 if (document.getElementById("result").textContent === '')
@@ -100,7 +94,8 @@ for(i = 0; i <= resultContent; i++)
             }
      DOMstrings.number6.onclick = function() {
                 type6();
-         resultContent.push(6);
+             toString(DOMstrings.number6.textContent)
+             resultContent.push(DOMstrings.number6.textContent);
             };
             function type6() {
                 if (document.getElementById("result").textContent === '')
@@ -114,7 +109,8 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number7.onclick = function() {
                 type7();
-         resultContent.push(7);
+             toString(DOMstrings.number7.textContent)
+             resultContent.push(DOMstrings.number7.textContent);
             };
             function type7() {
                 if (document.getElementById("result").textContent === '')
@@ -128,7 +124,8 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number8.onclick = function() {
                 type8();
-         resultContent.push(8);
+             toString(DOMstrings.number8.textContent)
+             resultContent.push(DOMstrings.number8.textContent);
             };
             function type8() {
                 if (document.getElementById("result").textContent === '')
@@ -141,7 +138,8 @@ for(i = 0; i <= resultContent; i++)
             }
      DOMstrings.number9.onclick = function() {
                 type9();
-         resultContent.push(9);
+             toString(DOMstrings.number9.textContent)
+             resultContent.push(DOMstrings.number9.textContent);
             };
             function type9() {
                 if (document.getElementById("result").textContent === '')
@@ -155,7 +153,8 @@ for(i = 0; i <= resultContent; i++)
 
      DOMstrings.number0.onclick = function() {
                 type0();
-         resultContent.push(0);
+             toString(DOMstrings.number0.textContent)
+             resultContent.push(DOMstrings.number0.textContent);
             };
             function type0() {
                 if (document.getElementById("result").textContent === '')
@@ -166,16 +165,59 @@ for(i = 0; i <= resultContent; i++)
                     document.getElementById("result").textContent += 0;
                 }
             }
-    //if (DOMstrings.equalButton.)
-}
+    document.getElementById("decimal_button").onclick = function() 
+    {
+        DOMstrings.resultDisplay.textContent += '.';
+        resultContent.push('.');
+    }
+    
+    
+        document.getElementById("plus_button").onclick = function() 
+    {
+        resultContent.push('+');
+        DOMstrings.resultDisplay.textContent = '';
+    }
+    
+    
+        document.getElementById("subtract_button").onclick = function() 
+    {
+        resultContent.push('-');
+        DOMstrings.resultDisplay.textContent = '';
+    } 
+        
+        document.getElementById("multiply_button").onclick = function() 
+    {
+        resultContent.push('*');
+        DOMstrings.resultDisplay.textContent = '';
+    } 
+        
+        document.getElementById("divide_button").onclick = function() 
+    {
+        resultContent.push('/');
+        DOMstrings.resultDisplay.textContent = '';
+    }  
+        
+        document.getElementById("percentage_button").onclick = function() 
+        {
+            resultContent.push('/100')
+            DOMstrings.resultDisplay.textContent += '%';
+        } 
+        
+        document.getElementById("equal_button").onclick = function() 
+        {
+            final = resultContent.join('');
+            finalResult = eval(final);
+            DOMstrings.resultDisplay.textContent = finalResult;
+        }
+        
 
 
-console.log(resultContent);
 
-DOMstrings.ACbutton.onclick = function() 
-{
-    DOMstrings.resultDisplay.textContent = '';
-}
+        DOMstrings.ACbutton.onclick = function() 
+        {
+            DOMstrings.resultDisplay.textContent = '';
+            resultContent = [];
+        }
 
 
 
