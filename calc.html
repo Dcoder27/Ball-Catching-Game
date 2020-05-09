@@ -1,4 +1,4 @@
-html lang="en">
+<html lang="en">
     <head>
         <style>
             div{
@@ -40,20 +40,26 @@ html lang="en">
               font-family: sans-serif;
               transition-duration: 0.1s;
               cursor: pointer;
-              border-radius: 20px;
-              overflow: hidden;    
+              border-radius: 25px;    
               width: 93%;
               height: 93%;    
             } 
             
             button:active{
                   transform: translateY(4px);
+                  transition-duration: 0.1s;
+                  background: red;
+                  
             }
             button:focus{
                 outline: 0;
+                background-color: black;
             }
             body{
                 background-color: antiquewhite;
+            }
+            .container button:hover{
+                background-color: black;
             }
        
   
@@ -64,7 +70,7 @@ html lang="en">
         <title>Calculator</title>
     </head>
     <body>
-        <div>    
+        <div id = "container">    
         <table>
           <th id = "result"; colspan="4"></th>
             <tr>
