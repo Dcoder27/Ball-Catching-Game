@@ -16,155 +16,86 @@ var DOMstrings = {
 };     
     var resultContent = [];
 
-        
-         DOMstrings.number1.onclick = function() {
-                type1();
-                toString(DOMstrings.number1.textContent)
-             resultContent.push(DOMstrings.number1.textContent);
-            };
-            function type1() {
-               if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 1;
-                } else 
-                {
-                    document.getElementById("result").textContent += 1;
-                }
-            }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+function displayNumber(num, val) 
+{
+    resultContent.push(val);
+    
+    if (document.getElementById("result").textContent === '0' || DOMstrings.resultDisplay.textContent === '')
+    {
+        DOMstrings.resultDisplay.textContent = val;
+    } else 
+    {
+        DOMstrings.resultDisplay.textContent += val;
+    }
+    
+}
 
+
+function resulting() 
+{
+    let final = resultContent.join('');
+    let finalResult = eval(final);
+    console.log(final, finalResult);
+    DOMstrings.resultDisplay.textContent = finalResult;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+        
+         DOMstrings.number1.onclick = function (){
+                displayNumber(DOMstrings.number1, '1');
+            }
+         
 
      DOMstrings.number2.onclick = function() {
-                type2();
-            toString(DOMstrings.number2.textContent)
-             resultContent.push(DOMstrings.number2.textContent);
-            };
-            function type2() {
-                if (document.getElementById("result").textContent === '0' || DOMstrings.resultDisplay.textContent === '')
-                {
-                    document.getElementById("result").textContent = 2;
-                } else 
-                {
-                    document.getElementById("result").textContent += 2;
-                }
+                displayNumber(DOMstrings.number2, '2');
             }
+     
 
      DOMstrings.number3.onclick = function() {
-                type3();
-             toString(DOMstrings.number3.textContent)
-             resultContent.push(DOMstrings.number3.textContent);
-            };
-            function type3() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 3;
-                } else 
-                {
-                    document.getElementById("result").textContent += 3;
-                }
+                displayNumber(DOMstrings.number3, '3');
             }
+     
 
      DOMstrings.number4.onclick = function() {
-                type4();
-             toString(DOMstrings.number4.textContent)
-             resultContent.push(DOMstrings.number4.textContent);
-            };
-            function type4() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 4;
-                } else 
-                {
-                    document.getElementById("result").textContent += 4;
-                }
+                displayNumber(DOMstrings.number4, '4');
             }
+     
 
      DOMstrings.number5.onclick = function() {
-                type5();
-             toString(DOMstrings.number5.textContent)
-             resultContent.push(DOMstrings.number5.textContent);
-            };
-            function type5() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 5;
-                } else 
-                {
-                    document.getElementById("result").textContent += 5;
-                }
+                displayNumber(DOMstrings.number5, '5');
             }
+     
+     
      DOMstrings.number6.onclick = function() {
-                type6();
-             toString(DOMstrings.number6.textContent)
-             resultContent.push(DOMstrings.number6.textContent);
-            };
-            function type6() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 6;
-                } else 
-                {
-                    document.getElementById("result").textContent += 6;
-                }
+                displayNumber(DOMstrings.number6, '6');
             }
+     
 
      DOMstrings.number7.onclick = function() {
-                type7();
-             toString(DOMstrings.number7.textContent)
-             resultContent.push(DOMstrings.number7.textContent);
-            };
-            function type7() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 7;
-                } else 
-                {
-                    document.getElementById("result").textContent += 7;
-                }
+                displayNumber(DOMstrings.number7, '7');
             }
+     
 
      DOMstrings.number8.onclick = function() {
-                type8();
-             toString(DOMstrings.number8.textContent)
-             resultContent.push(DOMstrings.number8.textContent);
-            };
-            function type8() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 8;
-                } else 
-                {
-                    document.getElementById("result").textContent += 8;
-                }
+                displayNumber(DOMstrings.number8, '8');
             }
+     
+     
      DOMstrings.number9.onclick = function() {
-                type9();
-             toString(DOMstrings.number9.textContent)
-             resultContent.push(DOMstrings.number9.textContent);
-            };
-            function type9() {
-                if (document.getElementById("result").textContent === '')
-                {
-                document.getElementById("result").textContent = 9;
-                } else 
-                {
-                    document.getElementById("result").textContent += 9;
-                }
+                displayNumber(DOMstrings.number9, '9');
             }
+     
+     
 
      DOMstrings.number0.onclick = function() {
-                type0();
-             toString(DOMstrings.number0.textContent)
-             resultContent.push(DOMstrings.number0.textContent);
-            };
-            function type0() {
-                if (document.getElementById("result").textContent === '')
-                {
-                    document.getElementById("result").textContent = 0;
-                } else 
-                {
-                    document.getElementById("result").textContent += 0;
-                }
+                displayNumber(DOMstrings.number0, '0');
             }
+     
+////////////////////////////////////////////////////////////////////////////////////////////////////     
+     
+     
     document.getElementById("decimal_button").onclick = function() 
     {
         DOMstrings.resultDisplay.textContent += '.';
@@ -182,7 +113,17 @@ var DOMstrings = {
         document.getElementById("subtract_button").onclick = function() 
     {
         resultContent.push('-');
+            
+        if (DOMstrings.resultDisplay.textContent = ' ') 
+    {
+            DOMstrings.resultDisplay.textContent = '-'; 
+            console.log('-');        
+    } else 
+        
+    {
         DOMstrings.resultDisplay.textContent = '';
+    }
+            
     } 
         
         document.getElementById("multiply_button").onclick = function() 
@@ -199,25 +140,26 @@ var DOMstrings = {
         
         document.getElementById("percentage_button").onclick = function() 
         {
-            resultContent.push('/100')
+            resultContent.push('/100');
             DOMstrings.resultDisplay.textContent += '%';
         } 
         
+////////////////////////////////////////////////////////////////////////////////////////////////////     
+        
+ 
+        
+///////////////////////////////////////////////////////////////////////////////////////////////////       
+        
         document.getElementById("equal_button").onclick = function() 
         {
-            final = resultContent.join('');
-            finalResult = eval(final);
-            DOMstrings.resultDisplay.textContent = finalResult;
+            resulting();
         }
-        
-
-
 
         DOMstrings.ACbutton.onclick = function() 
         {
             DOMstrings.resultDisplay.textContent = '';
             resultContent = [];
-        }
+        };
 
 
 
