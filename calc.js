@@ -13,14 +13,19 @@ var DOMstrings = {
         ACbutton: document.getElementById("AC_button"),
         resultDisplay: document.getElementById("result"),
         equalButton: document.getElementById("equal_button"),
-};     
+        scrollButton: document.getElementById("scroll_button")
+};  
+    DOMstrings.scrollButton.style.display = 'none';  
+    
     var resultContent = [];
+    var allEquations = [];
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
  
 function displayNumber(num, val) 
 {
     resultContent.push(val);
+    allEquations.push(val);
     
     if (document.getElementById("result").textContent === '0' || DOMstrings.resultDisplay.textContent === '')
     {
@@ -37,8 +42,9 @@ function resulting()
 {
     let final = resultContent.join('');
     let finalResult = eval(final);
-    console.log(final, finalResult);
+    let finalEquations = allEquations.join('\n')
     DOMstrings.resultDisplay.textContent = finalResult;
+    DOMstrings.scrollButton.style.display = 'block';
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -100,12 +106,14 @@ function resulting()
     {
         DOMstrings.resultDisplay.textContent += '.';
         resultContent.push('.');
+        allEquations.push('.');
     }
     
     
         document.getElementById("plus_button").onclick = function() 
     {
         resultContent.push('+');
+        allEquations.push('+');    
         DOMstrings.resultDisplay.textContent = '';
     }
     
@@ -113,6 +121,7 @@ function resulting()
         document.getElementById("subtract_button").onclick = function() 
     {
         resultContent.push('-');
+        allEquations.push('-')    
             
         if (DOMstrings.resultDisplay.textContent = ' ') 
     {
@@ -129,12 +138,14 @@ function resulting()
         document.getElementById("multiply_button").onclick = function() 
     {
         resultContent.push('*');
+        allEquations.push('*');
         DOMstrings.resultDisplay.textContent = '';
     } 
         
         document.getElementById("divide_button").onclick = function() 
     {
         resultContent.push('/');
+        allEquations.push('/');
         DOMstrings.resultDisplay.textContent = '';
     }  
         
@@ -158,8 +169,10 @@ function resulting()
         DOMstrings.ACbutton.onclick = function() 
         {
             DOMstrings.resultDisplay.textContent = '';
+            DOMstrings.scrollButton.style.display = 'none';
             resultContent = [];
         };
+
 
 
 
