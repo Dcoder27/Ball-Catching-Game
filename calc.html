@@ -1,3 +1,4 @@
+
 <html lang="en">
     <head>
         <style>
@@ -6,15 +7,15 @@
                 width: 100%;
             }
             
-            table{
+            #calculator{
                 width: 430px;
                 height: 430px;
-                margin-left: auto;
-                margin-right: auto;
+                margin-left: 450px;
                 margin-bottom: auto;
                 margin-top: auto;
                 border-collapse: collapse;
-                border: 1.5px solid black;
+                border: 1.5px solid white;
+                float: left;
                
             }
             th{
@@ -22,7 +23,7 @@
                 text-align: right;
                 font-family:monospace;
                 height: 55px;
-                border: 1.5px solid black;
+                border: 1.5px solid white;
                 
             }
             td{
@@ -44,7 +45,32 @@
               width: 93%;
               height: 93%;    
             } 
-            
+            #scrollData 
+            {
+                float: left;
+                color: #ffff;
+                margin-left: 140px;
+                width: 430px;
+                height: 57px;
+                border: 1px solid white;
+            }
+            #scrollTR:nth-child(even) 
+            {
+                background-color: white;
+                color: black;
+            }
+  
+            #scrollTD
+            {
+                text-align: right;
+                font-size: 40px;
+                font-family: monospace;
+                font-weight: bold;
+            }
+            #result 
+            {
+                color: white;
+            }
             button:active{
                   transform: translateY(4px);
                   transition-duration: 0.1s;
@@ -55,13 +81,20 @@
                 outline: 0;
                 background-color: black;
             }
-            body{
-                background-color: antiquewhite;
+            a
+            {
+                text-decoration: none;
             }
-            .container button:hover{
-                background-color: black;
+            .calc {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
-       
+            body 
+            {
+                background-image: url(space.jpeg);
+            }
   
           
 
@@ -70,9 +103,13 @@
         <title>Calculator</title>
     </head>
     <body>
-        <h1 style = "text-align: center"><strong><u>CALCULATOR</u></strong></h1>
-        <div id = "container">    
-        <table>
+        <h1 style = "text-align: center; color: white" ><strong>
+            <u>CALCULATOR</u></strong></h1>
+        
+        <div id = "container"> 
+            <div class = "calc">
+            <img src="back.png" alt="Snow" style="width:100%;height: 100%">
+        <table id = "calculator">
           <th id = "result"; colspan="4"></th>
             <tr>
                 <td colspan="2"><button id = "AC_button"; style = "background-color: darkorange;">AC</button></td>
@@ -80,39 +117,41 @@
                 <td><button id = "divide_button"; style = "background-color: darkorange;">÷</button></td>
             </tr>
             <tr>
-                <td><button id = "7_button"; style="    background-color: dimgrey">7</button></td>
-                <td><button id = "8_button"; style="    background-color: dimgrey">8</button></td>
-                <td><button id = "9_button"; style="    background-color: dimgrey">9</button></td>
+                <td><button id = "7_button"; style="    background-color: black">7</button></td>
+                <td><button id = "8_button"; style="    background-color: black">8</button></td>
+                <td><button id = "9_button"; style="    background-color: black">9</button></td>
                 <td><button id = "multiply_button"; style = "background-color: darkorange;">x</button></td>
             </tr>
              <tr>
-                <td><button id = "4_button"; style="    background-color: dimgrey">4</button></td>
-                <td><button id = "5_button"; style="    background-color: dimgrey">5</button></td>
-                <td><button id = "6_button"; style="    background-color: dimgrey">6</button></td>
+                <td><button id = "4_button"; style="    background-color: black">4</button></td>
+                <td><button id = "5_button"; style="    background-color: black">5</button></td>
+                <td><button id = "6_button"; style="    background-color: black">6</button></td>
                 <td><button id = "subtract_button"; style = "background-color: darkorange;">-</button></td>
             </tr>
              <tr>
-                <td><button id = "1_button"; style="    background-color: dimgrey">1</button></td>
-                <td><button id = "2_button"; style="    background-color: dimgrey">2</button></td>
-                <td><button id = "3_button"; style="    background-color: dimgrey">3</button></td>
+                <td><button id = "1_button"; style="    background-color: black">1</button></td>
+                <td><button id = "2_button"; style="    background-color: black">2</button></td>
+                <td><button id = "3_button"; style="    background-color: black">3</button></td>
                 <td><button id = "plus_button"; style = "background-color: darkorange;">+</button></td>
             </tr>
              <tr>
-                <td colspan="2"><button id = "0_button"; style="    background-color: dimgrey">0</button></td>  
-                <td><button id = "decimal_button"; style="    background-color: dimgrey">.</button></td>
+                <td colspan="2"><button id = "0_button"; style="background-color: black">0</button></td>  
+                <td><button id = "decimal_button"; style="    background-color: black">.</button></td>
                 <td><button id = "equal_button"; style = "background-color: darkorange;">=</button></td>
             </tr>
-            <tr>
-                <td id = "scroll"; colspan="4">
-                    <button id = "scroll_button"; value = "scroll"; text-align: "center">scroll</button>
-                </td>
-            </tr>
         </table>
-        </div>    
+                <table id = "scrollData">
+                    <tr id = "scrollTR">
+                        <td id="scrollTD">Scroll Results</td>
+                    </tr>
+                </table>
+            </div>    
+        </div> 
+
                         
     <!-- ---------------------------------JAVASCRIPT--------------------------------->
         
         <script src = "calc.js">
         </script>
     </body>
-</html
+</html>
