@@ -1,215 +1,156 @@
-var DOMstrings = {
-        number1: document.getElementById("1_button"),
-        number2: document.getElementById("2_button"),
-        number3: document.getElementById("3_button"),
-        number4: document.getElementById("4_button"),
-        number5: document.getElementById("5_button"),
-        number6: document.getElementById("6_button"),
-        number7: document.getElementById("7_button"),
-        number8: document.getElementById("8_button"),
-        number9: document.getElementById("9_button"),
-        number0: document.getElementById("0_button"),
-        ACbutton: document.getElementById("AC_button"),
-        resultDisplay: document.getElementById("result"),
-        equalButton: document.getElementById("equal_button"),
-        scrollRow: document.getElementById("scrollTR"),
-        scrollTable: document.getElementById("scrollData")
-};
 
-    var resultContent = [];
-    var allEquations = [];
-    let equalPressed = false;
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-function displayNumber(num, val)
-{
-    resultContent.push(val);
-    allEquations.push(val);
-    
-    
-    if (document.getElementById("result").textContent === '0' || DOMstrings.resultDisplay.textContent === '')
-    {
-        DOMstrings.resultDisplay.textContent = val;
-    } else
-    {
-        DOMstrings.resultDisplay.textContent += val;
-    }
-
-}
-
-
-function resulting()
-{
-    let final = resultContent.join('');
-    let finalResult = eval(final);
-    DOMstrings.resultDisplay.textContent = finalResult;
-    allEquations.push(' =\n' + finalResult);
-}
-
-function scrollDisplay(value) {
-    
-  var tableRef = document.getElementById('scrollData').getElementsByTagName('tbody')[0];
-
-  // Insert a row in the table at row index 0
-  var newRow   = tableRef.insertRow(tableRef.rows.length);
-
-  // Insert a cell in the row at index 0
-  var newCell  = newRow.insertCell(0);
-
-  // Append a text node to the cell
-    
-  var newText  = document.createTextNode(value);
-  newCell.appendChild(newText); 
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-         DOMstrings.number1.onclick = function (){
-                displayNumber(DOMstrings.number1, '1');
-                scrollDisplay('1');
+<html lang="en">
+    <head>
+        <style>
+            div{
+               align-self: center;
+                width: 100%;
             }
 
+            #calculator{
+                width: 430px;
+                height: 430px;
+                margin-left: 215px;
+                margin-bottom: auto;
+                margin-top: auto;
+                border-collapse: collapse;
+                border: 1.5px solid white;
+                float: left;
 
-     DOMstrings.number2.onclick = function() {
-                displayNumber(DOMstrings.number2, '2');
-                scrollDisplay('2');
+            }
+            th{
+                font-size: 40px;
+                text-align: right;
+                font-family:monospace;
+                height: 55px;
+                border: 1.5px solid white;
+
+            }
+            td{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            button{
+              padding: 16px 32px;
+              border: none;
+              color: white;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 25px;
+              font-family: sans-serif;
+              transition-duration: 0.1s;
+              cursor: pointer;
+              border-radius: 25px;
+              width: 93%;
+              height: 93%;
+            }
+            #scrollData
+            {
+                float: left;
+                color: #ffff;
+                margin-left: 140px;
+                width: 430px;
+                height: 57px;
+                border: 1px solid white;
+            }
+            #scrollTR:nth-child(even)
+            {
+                background-color: white;
+                color: black;
             }
 
-
-     DOMstrings.number3.onclick = function() {
-                displayNumber(DOMstrings.number3, '3');
-                scrollDisplay('3');
+            #scrollTD
+            {
+                text-align: center;
+                font-size: 25px;
+                font-family: monospace;
+                font-weight: bold;
             }
-
-
-     DOMstrings.number4.onclick = function() {
-                displayNumber(DOMstrings.number4, '4');
-                scrollDisplay('4');
+            #result
+            {
+                color: white;
             }
+            button:active{
+                  transform: translateY(4px);
+                  transition-duration: 0.1s;
+                  background: red;
 
-
-     DOMstrings.number5.onclick = function() {
-                displayNumber(DOMstrings.number5, '5');
-                scrollDisplay('5');
             }
-
-
-     DOMstrings.number6.onclick = function() {
-                displayNumber(DOMstrings.number6, '6');
-                scrollDisplay('6');
+            button:focus{
+                outline: 0;
+                background-color: black;
             }
-
-
-     DOMstrings.number7.onclick = function() {
-                displayNumber(DOMstrings.number7, '7');
-                scrollDisplay('7');
+            a
+            {
+                text-decoration: none;
             }
-
-
-     DOMstrings.number8.onclick = function() {
-                displayNumber(DOMstrings.number8, '8');
-                scrollDisplay('8');
+            .calc {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
-
-
-     DOMstrings.number9.onclick = function() {
-                displayNumber(DOMstrings.number9, '9');
-                scrollDisplay('9');
+            body
+            {
+                background-image: url(space.jpeg);
             }
 
 
 
-     DOMstrings.number0.onclick = function() {
-                displayNumber(DOMstrings.number0, '0');
-                scrollDisplay('0');
-            }
+        </style>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <h1 style = "text-align: center; color: white" ><strong>
+            <u>CALCULATOR</u></strong></h1>
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    document.getElementById("decimal_button").onclick = function()
-    {
-        scrollDisplay('.');
-        DOMstrings.resultDisplay.textContent += '.';
-        resultContent.push('.');
-        allEquations.push('.');
-    }
-
-
-        document.getElementById("plus_button").onclick = function()
-    {
-        scrollDisplay('+');
-        resultContent.push('+');
-        allEquations.push(' +<br>');
-        DOMstrings.resultDisplay.textContent = '';
-    }
-
-
-        document.getElementById("subtract_button").onclick = function()
-    {
-        scrollDisplay('-');
-        resultContent.push('-');
-        allEquations.push(' -<br>')
-
-        if (DOMstrings.resultDisplay.textContent = ' ')
-    {
-            DOMstrings.resultDisplay.textContent = '-';
-            console.log('-');
-    } else
-
-    {
-        DOMstrings.resultDisplay.textContent = '';
-    }
-
-    }
-
-        document.getElementById("multiply_button").onclick = function()
-    {
-        scrollDisplay('x');
-        resultContent.push('*');
-        allEquations.push(' x<br>');
-        DOMstrings.resultDisplay.textContent = '';
-    }
-
-        document.getElementById("divide_button").onclick = function()
-    {
-        scrollDisplay('÷');
-        resultContent.push('/');
-        allEquations.push(' ÷<br>');
-        DOMstrings.resultDisplay.textContent = '';
-    }
-
-        document.getElementById("percentage_button").onclick = function()
-        {
-            scrollDisplay('%');
-            resultContent.push('/100');
-            allEquations.push('% x<br>');
-            DOMstrings.resultDisplay.textContent += '%';
-        }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//// LOOPS /////        
+        <div id = "container">
+            <div class = "calc">
+        <table id = "calculator">
+          <th id = "result"; colspan="4"></th>
+            <tr>
+                <td colspan="2"><button id = "AC_button"; style = "background-color: darkorange;">AC</button></td>
+                <td><button id = "percentage_button"; style = "background-color: darkorange;">%</button></td>
+                <td><button id = "divide_button"; style = "background-color: darkorange;">÷</button></td>
+            </tr>
+            <tr>
+                <td><button id = "7_button"; style="    background-color: black">7</button></td>
+                <td><button id = "8_button"; style="    background-color: black">8</button></td>
+                <td><button id = "9_button"; style="    background-color: black">9</button></td>
+                <td><button id = "multiply_button"; style = "background-color: darkorange;">x</button></td>
+            </tr>
+             <tr>
+                <td><button id = "4_button"; style="    background-color: black">4</button></td>
+                <td><button id = "5_button"; style="    background-color: black">5</button></td>
+                <td><button id = "6_button"; style="    background-color: black">6</button></td>
+                <td><button id = "subtract_button"; style = "background-color: darkorange;">-</button></td>
+            </tr>
+             <tr>
+                <td><button id = "1_button"; style="    background-color: black">1</button></td>
+                <td><button id = "2_button"; style="    background-color: black">2</button></td>
+                <td><button id = "3_button"; style="    background-color: black">3</button></td>
+                <td><button id = "plus_button"; style = "background-color: darkorange;">+</button></td>
+            </tr>
+             <tr>
+                <td colspan="2"><button id = "0_button"; style="background-color: black">0</button></td>
+                <td><button id = "decimal_button"; style="    background-color: black">.</button></td>
+                <td><button id = "equal_button"; style = "background-color: darkorange;">=</button></td>
+            </tr>
+        </table>
+                <table id = "scrollData">
+                    <tr id = "scrollTR">
+                        <td id="scrollTD">Scroll Results</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+    <!-- ---------------------------------JAVASCRIPT--------------------------------->
 
-        document.getElementById("equal_button").onclick = function()
-        {
-            equalPressed = true;
-            resulting();
-            let final = resultContent.join('');
-            let finalResult = eval(final);
-            scrollDisplay('=');
-            scrollDisplay(finalResult)
-        };
-
-
-        DOMstrings.ACbutton.onclick = function()
-        {
-            scrollDisplay('All Cleared');
-            DOMstrings.resultDisplay.textContent = '';
-            resultContent = [];
-        };
-
+        <script src = "calc.js">
+        </script>
+    </body>
+</html>
